@@ -13,6 +13,7 @@ Later ansible will be executed and via playbook file all requred app will be dep
 Ansible playbook contains:
 1) NGINX is used as a proxy to replace default path for grafana from http://<server_ip>:3000 to http://<server_ip>/grafana
 2) Grafana deployment and configuration to serve with subpath, anonymous view of the provided dashboard
+Dashbord and datasource are imported from pre-created files
 3) Prometheus is used from github: prometheus itself, node_exporter and blackbox_exporter, all configs are default.
 To scrape python app parametrs prometheus.conf is replaced with modified conf file.
 SELinux is enabled by_default with VM, it is not managed via Ansible.
