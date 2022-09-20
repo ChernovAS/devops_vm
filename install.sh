@@ -41,8 +41,8 @@ sudo mv main_task_grafana.yml $ANSIBLE/roles/grafana/tasks/main.yml
 sudo mv grafana.ini $ANSIBLE/roles/grafana/templates/
 sudo mv datasources.yml $ANSIBLE/roles/grafana/templates/
 sudo mv dashboards.yml $ANSIBLE/roles/grafana/templates/
-sudo mv httprequests.json $ANSIBLE/roles/grafana/templates/
-sudo mv selinux.yml $ANSIBLE/roles/selinux/tasks/main.yml
+sudo mv pythonapp.json $ANSIBLE/roles/grafana/templates/
+#sudo mv selinux.yml $ANSIBLE/roles/selinux/tasks/main.yml
 sudo mv iptables.yml $ANSIBLE/roles/iptabels/tasks/main.yml
 sleep 3
 #!!!!!INSTALL PYTHON APP
