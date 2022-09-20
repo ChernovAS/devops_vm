@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  become: yes
+  become_user: root   
+  roles:
+    - prometheus_node_exporter
+    - prometheus_blackbox_exporter
+    - prometheus
+    - grafana
+    - nginx
+    #- selinux
+    - iptables

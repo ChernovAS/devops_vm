@@ -1,0 +1,20 @@
+---
+# tasks file for role/nginx
+- name: install nginx
+  dnf:
+    name: nginx
+    state: present
+
+- name: start nginx server
+  service:
+     name: nginx
+     state: started
+     enabled: yes
+
+- name: NGINX prepared config
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+- name: NGINX Restart
+  service:
+    name: nginx
+    state: restarted
