@@ -34,3 +34,5 @@ Things to improve:
 but still there is /d in the path right after /grafana
 3) Python app - pain in my asshole so far :)
 THere should be 2 pages, one with http app counter and prometheus cpu/ram_scrape on te other page.
+
+* as a trick on the webapps page grafana monitoring might be forwarded
