@@ -36,3 +36,7 @@ but still there is /d in the path right after /grafana
 THere should be 2 pages, one with http app counter and prometheus cpu/ram_scrape on te other page.
 
 * as a trick on the webapps page grafana monitoring might be forwarded
+for /health this might be used: http://172.23.23.206:9090/graph?g0.range_input=1h&g0.expr=%20rate(server_requests_total%5B1m%5D)&g0.tab=0&g1.range_input=1h&g1.expr=rate(process_resident_memory_bytes%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g1.tab=0&g2.range_input=1h&g2.expr=rate(process_cpu_seconds_total%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g2.tab=0
+
+for /app:
+
