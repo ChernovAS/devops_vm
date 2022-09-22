@@ -54,6 +54,9 @@ sleep 3
 echo "==============================="
 echo "====ANSIBLE           START===="
 echo "==============================="
+###ssh-keys
+
+sudo mv playbook.yml hosts ansible/
 ansible-playbook -i $ANSIBLE/hosts $ANSIBLE/playbook.yml
 sudo mv prometheus.conf /etc/prometheus/
 systemctl restart prometheus
