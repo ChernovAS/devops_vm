@@ -10,6 +10,9 @@ During the VM deployment all requred config files will be copied to related Ansi
 VM will be started and required dependencies will be installed.
 Later ansible will be executed and via playbook file all requred app will be deployed and configured.
 
+As an access poin briged network is used (its ip address), it is greped and used later for the python webapp.
+Basically /health is a redirection towards grafana graph's page with pre-defied parametrs
+
 Ansible playbook contains:
 1) NGINX is used as a proxy to replace default path for grafana from http://<server_ip>:3000 to http://<server_ip>/grafana
 for python_app it is redirecting http://localhost:8001 to http://<server_ip>/app
