@@ -2,7 +2,7 @@ import http.server
 from prometheus_client import start_http_server
 from prometheus_client import Counter
 
-with open('ipaddr','r') as file:
+with open('projects/python/ipaddr','r') as file:
   IPAddr = file.read().replace('\n','')
 
 REQUESTS = Counter('server_requests_total', 'Total number of requests to this webserver')
