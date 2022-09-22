@@ -46,10 +46,10 @@ sudo mv pythonapp.json $ANSIBLE/roles/grafana/templates/
 sudo mv iptables.yml $ANSIBLE/roles/iptabels/tasks/main.yml
 sleep 3
 #!!!!!INSTALL PYTHON APP
-sudo mkdir -p $ANSIBLE/projects/python
-mv webapp.py $ANSIBLE/project/python/
+sudo mkdir -p projects/python
+mv webapp.py projects/python/
 sudo /sbin/ifconfig enp0s8 | grep 'inet' | cut -d: -f2 | awk '{print $2}' > projects/python/ipaddr
-python3 webapp.py
+python3 projects/python/webapp.py
 sleep 3
 echo "==============================="
 echo "====ANSIBLE           START===="
