@@ -35,11 +35,12 @@ Things to improve:
 1) SElinux ansible configuration: due to some issues with python libraries (which I was not able to resolve) ansible is not able to manage SELinux
 2) Grafana defaul path is http://<server_ip>/grafana/d/pythonapp , it should be /grafana/dashboard instead. No idea how to resolve this, dashbord uid rename is kinda working
 but still there is /d in the path right after /grafana
-3) Python app - pain in my asshole so far :)
-THere should be 2 pages, one with http app counter and prometheus cpu/ram_scrape on te other page.
+3) Python app - it is no ideal, still.
 
 * as a trick on the webapps page grafana monitoring might be forwarded
-for /health this might be used: http://172.23.23.206:9090/graph?g0.range_input=1h&g0.expr=%20rate(server_requests_total%5B1m%5D)&g0.tab=0&g1.range_input=1h&g1.expr=rate(process_resident_memory_bytes%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g1.tab=0&g2.range_input=1h&g2.expr=rate(process_cpu_seconds_total%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g2.tab=0
+for /health this might be used: http://<server_bridged_ip>:9090/graph?g0.range_input=1h&g0.expr=%20rate(server_requests_total%5B1m%5D)&g0.tab=0&g1.range_input=1h&g1.expr=rate(process_resident_memory_bytes%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g1.tab=0&g2.range_input=1h&g2.expr=rate(process_cpu_seconds_total%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g2.tab=0
 
-for /app:
+But NGINX is not configured to use redirection to /health
+
+for /app: no ideas so far :)
 
