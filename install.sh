@@ -49,7 +49,7 @@ sleep 3
 sudo mkdir -p projects/python
 mv webapp.py projects/python/
 sudo /sbin/ifconfig enp0s8 | grep 'inet' | cut -d: -f2 | awk '{print $2}' > projects/python/ipaddr
-python3 projects/python/webapp.py
+nohup python3 projects/python/webapp.py &
 sleep 3
 echo "==============================="
 echo "====ANSIBLE           START===="
