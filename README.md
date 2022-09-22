@@ -29,18 +29,21 @@ IPtables are managed via ansible:  with allowed ports:
       - "8080"
       - "3000"
       - "8000:9999"
-      
+ 
+4) python simple web server is configured and executed on port 8001 which has been proxied to http://<server_ip>/app 
+for /app: on the main page there is a link (HEALTH) with Prometheus Graphs which is playing role of /health page,
+below: page visitors counter is located, it is not ideal (because value is string), but it updates dynamic.
+
+This was achieved with help of the official python prometheus-client (https://github.com/prometheus/client_python).
 
 Things to improve:
 1) SElinux ansible configuration: due to some issues with python libraries (which I was not able to resolve) ansible is not able to manage SELinux
 2) Grafana defaul path is http://<server_ip>/grafana/d/pythonapp , it should be /grafana/dashboard instead. No idea how to resolve this, dashbord uid rename is kinda working
 but still there is /d in the path right after /grafana
-3) Python app - it is no ideal, still.
+3) as a workaround on the webapp Prometheus graphs page is used with requred parameters
+http://<server_bridged_ip>:9090/graph?g0.range_input=1h&g0.expr=%20rate(server_requests_total%5B1m%5D)&g0.tab=0&g1.range_input=1h&g1.expr=rate(process_resident_memory_bytes%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g1.tab=0&g2.range_input=1h&g2.expr=rate(process_cpu_seconds_total%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g2.tab=0
 
-* as a trick on the webapps page grafana monitoring might be forwarded
-for /health this might be used: http://<server_bridged_ip>:9090/graph?g0.range_input=1h&g0.expr=%20rate(server_requests_total%5B1m%5D)&g0.tab=0&g1.range_input=1h&g1.expr=rate(process_resident_memory_bytes%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g1.tab=0&g2.range_input=1h&g2.expr=rate(process_cpu_seconds_total%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g2.tab=0
+But NGINX is not proxying it to /health
 
-But NGINX is not configured to use redirection to /health
-
-for /app: no ideas so far :)
+.
 
