@@ -18,9 +18,12 @@
  
 - name: install Grafana config
   template: src=grafana.ini dest=/etc/grafana/grafana.ini
+- name: install grafana datasources
   template: src=datasources.yml dest=/etc/grafana/provisioning/datasources/datasources.yml
-  template: src=dashboards.yml dest=/etc/grafana/provisioning/datasources/dashboards.yml
-  template: src=httprequests.json dest=/etc/dashboards/python_app/httprequests.json
+- name: install grafana dashboards
+  template: src=dashboards.yml dest=/etc/grafana/provisioning/dashboards/dashboards.yml
+- name: install grafana dashboard for pythonapp
+  template: src=pythonapp.json dest=/etc/dashboards/python_app/pythonapp.json
 
 - name: grafana Restart
   service:
