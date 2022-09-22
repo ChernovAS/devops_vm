@@ -30,7 +30,7 @@ sudo mkdir ansible
 ANSIBLE=/vagrant/ansible
 ansible-galaxy init $ANSIBLE/roles/nginx
 ansible-galaxy init $ANSIBLE/roles/grafana
-ansible-galaxy init $ANSIBLE/roles/iptabels
+ansible-galaxy init $ANSIBLE/roles/iptables
 #ansible-galaxy init $ANSIBLE/roles/selinux
 ansible-galaxy collection install ansible.posix
 git clone https://github.com/MiteshSharma/PrometheusWithAnsible
@@ -43,7 +43,7 @@ sudo mv datasources.yml $ANSIBLE/roles/grafana/templates/
 sudo mv dashboards.yml $ANSIBLE/roles/grafana/templates/
 sudo mv pythonapp.json $ANSIBLE/roles/grafana/templates/
 #sudo mv selinux.yml $ANSIBLE/roles/selinux/tasks/main.yml
-sudo mv iptables.yml $ANSIBLE/roles/iptabels/tasks/main.yml
+sudo mv iptables.yml $ANSIBLE/roles/iptables/tasks/main.yml
 sleep 3
 #!!!!!INSTALL PYTHON APP
 sudo mkdir -p projects/python
