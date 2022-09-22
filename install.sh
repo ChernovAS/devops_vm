@@ -55,7 +55,8 @@ echo "==============================="
 echo "====ANSIBLE           START===="
 echo "==============================="
 ###ssh-keys
-
+sudo echo | ssh-keygen -N dev0pS
+sudo sshpass -p dev0pS ssh-copy-id localhost.localdomain
 sudo mv playbook.yml hosts ansible/
 ansible-playbook -i $ANSIBLE/hosts $ANSIBLE/playbook.yml
 sudo mv prometheus.conf /etc/prometheus/
