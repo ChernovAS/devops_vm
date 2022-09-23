@@ -5,6 +5,14 @@ This project is for the automatic VM deployment with such features on board:
 4) Ansible
 5) Python-web
 
+#######################
+USAGE
+#######################
+1) git clone to yumr local machine
+2) cd to the cloned file and run vagrant up
+2.1) if you'll face an issue with /vagrant directory (it will not be mounted into the created vm), please copy Vagrant2 file and spin a vm from this file
+3) in a while all services should be up and running
+
 All provisioning is happening via Varantfile (SHELL section).
 During the VM deployment all requred config files will be copied to related Ansible roles directories.
 VM will be started and required dependencies will be installed.
@@ -50,4 +58,5 @@ But NGINX is not proxying it to /health
 
 * there is an additional Vagrantfile2. During the automation I faced some issues with vagrant shared folder, perhaps I have some issues wit local vagrant app or virtual box, 
 but in most cases /vagrant directory is not mounted automatically not manually. Vagrant2 might be used in this case. Basically it is creating /vagrant manually and pulling from git all requred.
+Ideally /vagrant directory will be mapped and all repo-files will be there, so Vagrant provisioner will be able to build everything from the beginning.
 
