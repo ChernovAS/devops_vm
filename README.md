@@ -45,5 +45,9 @@ http://<server_bridged_ip>:9090/graph?g0.range_input=1h&g0.expr=%20rate(server_r
 
 But NGINX is not proxying it to /health
 
-.
+4) Definetelly there should be some check to be sure that all required services are up and running!!!
+
+
+* there is an additional Vagrantfile2. During the automation I faced some issues with vagrant shared folder, perhaps I have some issues wit local vagrant app or virtual box, 
+but in most cases /vagrant directory is not mounted automatically not manually. Vagrant2 might be used in this case. Basically it is creating /vagrant manually and pulling from git all requred.
 
