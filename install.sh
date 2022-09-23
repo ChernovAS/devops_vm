@@ -62,6 +62,11 @@ sudo mv playbook.yml inventory.yml ansible/
 ansible-playbook -i ansible/inventory.yml ansible/playbook.yml
 sleep 120
 sudo mv prometheus.conf /etc/prometheus/
+sleep 10
+systemctl restart node_exporter.service
+sleep 10
+systemctl restart blackbox_exporter.service
+sleep 10
 systemctl restart prometheus
 
 echo "==============================="
