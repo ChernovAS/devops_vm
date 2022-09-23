@@ -48,12 +48,13 @@ Things to improve:
 1) SElinux ansible configuration: due to some issues with python libraries (which I was not able to resolve) ansible is not able to manage SELinux
 2) Grafana defaul path is http://<server_ip>/grafana/d/pythonapp , it should be /grafana/dashboard instead. No idea how to resolve this, dashbord uid rename is kinda working
 but still there is /d in the path right after /grafana
-3) as a workaround on the webapp Prometheus graphs page is used with requred parameters
+3) as a workaround on the webapp Prometheus graphs page is used with required parameters, instead of /health
 http://<server_bridged_ip>:9090/graph?g0.range_input=1h&g0.expr=%20rate(server_requests_total%5B1m%5D)&g0.tab=0&g1.range_input=1h&g1.expr=rate(process_resident_memory_bytes%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g1.tab=0&g2.range_input=1h&g2.expr=rate(process_cpu_seconds_total%7Bjob%3D%27python-app%27%7D%5B1m%5D)&g2.tab=0
 
 But NGINX is not proxying it to /health
 
 4) Definetelly there should be some check to be sure that all required services are up and running!!!
+5) Ansible usage with ssh-key
 
 
 * there is an additional Vagrantfile2. During the automation I faced some issues with vagrant shared folder, perhaps I have some issues wit local vagrant app or virtual box, 
