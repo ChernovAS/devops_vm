@@ -47,11 +47,10 @@ Vagrant.configure("2") do |config|
    nohup python3 projects/python/webapp.py &
    sleep 3
    echo "ansible start"
-   sudo echo | ssh-keygen -N dev0pS
-   sudo sshpass -p dev0pS ssh-copy-id localhost.localdomain
-   sudo mv playbook.yml hosts ansible/
-   ansible-playbook -i $ANSIBLE/hosts $ANSIBLE/playbook.yml
-   sudo mv prometheus.conf /etc/prometheus/
+   sudo mv playbook.yml inventory.yml ansible/
+   ansible-playbook -i ansible/inventory.yml ansible/playbook.yml
+   sleep 120
+   sudo echo -e "  - job_name: 'python-app'\n    static_configs:\n      - targets: ['localhost:8000']" >> /etc/prometheus/prometheus.conf
    systemctl restart prometheus
    SHELL
 end
