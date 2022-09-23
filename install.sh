@@ -61,14 +61,8 @@ echo "$(whoami) ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$(whoami)
 sudo mv playbook.yml inventory.yml ansible/
 ansible-playbook -i ansible/inventory.yml ansible/playbook.yml
 sleep 120
-sudo mv prometheus.conf /etc/prometheus/
-sleep 10
-systemctl restart node_exporter.service
-sleep 10
-systemctl restart blackbox_exporter.service
-sleep 10
+sudo echo -e "  - job_name: 'python-app'\n    static_configs:\n      - targets: ['localhost:8000']" >> /etc/prometheus/prometheus.conf
 systemctl restart prometheus
-
 echo "==============================="
 echo "===DONE_DONE_DONE_DONE_DONE===="
 echo "==============================="
