@@ -5,10 +5,8 @@ This project is for the automatic VM deployment with such features on board:
 4) Ansible
 5) Python-web
 
-#######################
-USAGE
-#######################
-1) git clone to yumr local machine
+########################USAGE#######################
+1) git clone to your local machine
 2) cd to the cloned file and run vagrant up
 2.1) if you'll face an issue with /vagrant directory (it will not be mounted into the created vm), please copy Vagrant2 file and spin a vm from this file
 3) in a while all services should be up and running
