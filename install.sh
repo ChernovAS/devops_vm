@@ -55,10 +55,12 @@ echo "==============================="
 echo "====ANSIBLE           START===="
 echo "==============================="
 ###ssh-keys
-sudo echo | ssh-keygen -N dev0pS
-sudo sshpass -p dev0pS ssh-copy-id localhost.localdomain
+sudo echo | ssh-keygen -N ''
+sudo sshpass -p vagrant ssh-copy-id localhost.localdomain
+echo "$(whoami) ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$(whoami)
 sudo mv playbook.yml hosts ansible/
-ansible-playbook -i $ANSIBLE/hosts $ANSIBLE/playbook.yml
+ansible-playbook -i ansible/hosts ansible/playbook.yml
+sleep 120
 sudo mv prometheus.conf /etc/prometheus/
 systemctl restart prometheus
 
