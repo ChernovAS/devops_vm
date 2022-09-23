@@ -67,7 +67,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "rate(process_resident_memory_bytes{job=”python-app”}[1m])",
+          "expr": "rate(process_resident_memory_bytes{job='python-app'}[1m])",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -159,7 +159,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "rate(process_cpu_seconds_total{job=”python-app”}[1m])",
+          "expr": "rate(process_cpu_seconds_total{job='python-app'}[1m])",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
