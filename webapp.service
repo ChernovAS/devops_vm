@@ -1,0 +1,12 @@
+[Unit]
+Description=simple web-server
+After=network.target
+
+[Service]
+Type=idle
+Restart=on-failure
+User=root
+ExecStart=/usr/bin/python /vagrant/projects/python/webapp.py
+
+[Install]
+WantedBy=multi-user.target
