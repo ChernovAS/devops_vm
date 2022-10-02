@@ -10,4 +10,4 @@
     - nginx
     #- selinux
     - iptables
-    - python_app
+    - webapp
