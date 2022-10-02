@@ -58,7 +58,4 @@ But NGINX is not proxying it to /health
 5) Ansible usage with ssh-key
 
 
-* there is an additional Vagrantfile2. During the automation I faced some issues with vagrant shared folder, perhaps I have some issues wit local vagrant app or virtual box, 
-but in most cases /vagrant directory is not mounted automatically not manually. Vagrant2 might be used in this case. Basically it is creating /vagrant manually and pulling from git all requred.
-Ideally /vagrant directory will be mapped and all repo-files will be there, so Vagrant provisioner will be able to build everything from the beginning.
-
+* there is an additional Vagrantfile_old which does not have all the latest updates, but it might be used if they will be applied as an alternative way of automation
