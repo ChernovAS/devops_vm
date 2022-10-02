@@ -41,6 +41,7 @@ IPtables are managed via ansible:  with allowed ports:
 4) python simple web server is configured and executed on port 8001 which has been proxied to http://<server_ip>/app 
 for /app: on the main page there is a link (HEALTH) with Prometheus Graphs which is playing role of /health page,
 below: page visitors counter is located, it is not ideal (because value is string), but it updates dynamic.
+-- Some improvement has been made: webapp is not configured to be a systemd service with a checkout after start, so counter will be 2 from the beggining!
 
 This was achieved with help of the official python prometheus-client (https://github.com/prometheus/client_python).
 
