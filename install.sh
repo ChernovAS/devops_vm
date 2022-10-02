@@ -31,6 +31,7 @@ ANSIBLE=/vagrant/ansible
 ansible-galaxy init $ANSIBLE/roles/nginx
 ansible-galaxy init $ANSIBLE/roles/grafana
 ansible-galaxy init $ANSIBLE/roles/iptables
+ansible-galaxy init $ANSIBLE/roles/webapp
 #ansible-galaxy init $ANSIBLE/roles/selinux
 ansible-galaxy collection install ansible.posix
 git clone https://github.com/MiteshSharma/PrometheusWithAnsible
@@ -44,12 +45,14 @@ sudo mv dashboards.yml $ANSIBLE/roles/grafana/templates/
 sudo mv pythonapp.json $ANSIBLE/roles/grafana/templates/
 #sudo mv selinux.yml $ANSIBLE/roles/selinux/tasks/main.yml
 sudo mv iptables.yml $ANSIBLE/roles/iptables/tasks/main.yml
+sudo mv pythonwebapp.yml ANSIBLE/roles/webapp/tasks/main.yml
+mv webapp.service $ANSIBLE/roles/webapp/templates/
 sleep 3
 #!!!!!INSTALL PYTHON APP
 sudo mkdir -p projects/python
 mv webapp.py projects/python/
 sudo /sbin/ifconfig enp0s8 | grep 'inet' | cut -d: -f2 | awk '{print $2}' > projects/python/ipaddr
-nohup python3 projects/python/webapp.py &
+#nohup python3 projects/python/webapp.py &
 sleep 3
 echo "==============================="
 echo "====ANSIBLE           START===="
