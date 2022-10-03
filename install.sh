@@ -45,7 +45,7 @@ sudo mv dashboards.yml $ANSIBLE/roles/grafana/templates/
 sudo mv pythonapp.json $ANSIBLE/roles/grafana/templates/
 #sudo mv selinux.yml $ANSIBLE/roles/selinux/tasks/main.yml
 sudo mv iptables.yml $ANSIBLE/roles/iptables/tasks/main.yml
-sudo mv pythonwebapp.yml ANSIBLE/roles/webapp/tasks/main.yml
+sudo mv pythonwebapp.yml $ANSIBLE/roles/webapp/tasks/main.yml
 mv webapp.service $ANSIBLE/roles/webapp/templates/
 sleep 3
 #!!!!!INSTALL PYTHON APP
